@@ -8,7 +8,11 @@ MagneticTwitter::Application.routes.draw do
 
   root to: 'welcome#index'
 
-  get "welcome/index"
+  get 'welcome/index'
+
+  get 'tweets/new' => 'tweets#new'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -1,0 +1,16 @@
+<section class='new-tweet'>
+  <h2>Your Tweet</h2>
+</section>
+
+<% @tweets.each do |tweet| %>
+  <section class='tweet'>
+    <img class='profile-image' src="<%= tweet.user.profile_image_url.to_s.gsub('_normal', '')%>">
+    <h3><%= tweet.user.name %></h3>
+    <% words = tweet.text.split(' ') %>
+    <% words.each do |word| %>
+    <span class='words'><%= word %></span>
+    <% end %>
+    <hr>
+  </section>
+<% end %>
+
