@@ -1,4 +1,11 @@
 MagneticTwitter::Application.routes.draw do
+
+  # Twitter Auth
+  match 'auth/:provider/callback', to: 'sessions#create'
+  match 'auth/failure', to: redirect('/')
+  match 'signout', to: 'sessions#destroy', as: 'signout'
+
+
   root to: 'welcome#index'
 
   get "welcome/index"
