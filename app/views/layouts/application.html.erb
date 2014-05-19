@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MagneticTwitter</title>
+  <title>Magnetic Twitter</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -10,10 +10,10 @@
 
   <nav>
     <% if current_user %>
-      @<%= current_user.name %>
-      <%= link_to "Sign out", signout_path %>
+      <h5 class='username'>@<%= current_user.name %></h5>
+      <h5 class='signout'><%= link_to "Sign out", signout_path %></h5>
     <% else %>
-      <%= link_to "Sign in with Twitter", "/auth/twitter" %>
+      <h5 class='signin'><%= link_to "Sign in with Twitter", "/auth/twitter" %></h5>
     <% end %>
   </nav>
 
