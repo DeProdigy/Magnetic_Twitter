@@ -1,25 +1,67 @@
-.words {
-  background: #95A5A6;
-}
+@import "fonts";
+@import "mixins";
 
-.profile-image{
-  height: 100px;
-  width: 100px;
-}
+$margin: 10px;
+$border-radius: 3px;
+$padding: 10px;
+$nav-height: 100px;
 
-.tweet {
-  width: 400px;
-}
-
-.new-tweet {
-  float: right;
-  width: 400px;
-  height: 200px;
-  background: #95A5A6;
+body {
+  padding: $padding;
+  font-family: 'Raleway', sans-serif;
+  background: #2BBDF4;
 }
 
 nav {
-  height: 100px;
-  background: rgba(black, 0.6);
+  height: $nav-height;
+  background: rgba(#073647, 0.8);
   margin-bottom: 20px;
+  border-radius: $border-radius;
 }
+
+// User
+.profile-image{
+  float: left;
+  height: 100px;
+  width: 100px;
+  margin: 0 $margin $margin 0;
+}
+
+.name {
+  float: left;
+}
+
+
+// Tweets
+.words {
+  clear: both;
+}
+
+.word {
+  background: #95A5A6;
+}
+
+.tweet {
+  border: 1px solid white;
+  width: 500px;
+  margin-bottom: $margin;
+  padding: $padding;
+  border-radius: $border-radius;
+}
+
+.new-tweet {
+  position: fixed;
+  top: ($padding * 2) + ($margin * 2) + $nav-height;
+  right: ($padding * 2);
+  width: 500px;
+  height: 200px;
+  background: #95A5A6;
+  border-radius: $border-radius;
+  padding: $padding;
+}
+
+
+
+
+
+
