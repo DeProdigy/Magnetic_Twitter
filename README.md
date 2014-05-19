@@ -4,7 +4,7 @@ TODO
 
 ~~make images circle~~
 
-add media quries for the new-tweet to float instead of fixed
+add a function that clears up the @tweets response
 
 add angular
 

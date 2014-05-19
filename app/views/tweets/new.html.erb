@@ -8,10 +8,10 @@
 
 <% @tweets.each do |tweet| %>
   <section class='tweet'>
-    <%= image_tag tweet.user.profile_image_url.to_s.gsub('_normal', ''), :class => 'profile-image' %>
-    <h3 class='name'><%= tweet.user.name %></h3>
+    <%= image_tag tweet[:profile_image_url], :class => 'profile-image' %>
+    <h3 class='name'><%= tweet[:name] %> - @<%= tweet[:username] %></h3>
     <article class='words'>
-      <% words = tweet.text.split(' ') %>
+      <% words = tweet[:text] %>
       <% words.each do |word| %>
       <span class='word'><%= word %></span>
       <% end %>
