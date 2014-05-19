@@ -10,6 +10,7 @@
 
   <nav>
     <% if current_user %>
+      <%= image_tag current_user.profile_image_url, :class => 'user-image' %>
       <h5 class='username'>@<%= current_user.name %></h5>
       <h5 class='signout'><%= link_to "Sign out", signout_path %></h5>
     <% else %>
