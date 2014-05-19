@@ -12,7 +12,7 @@ $transparant-background: rgba($second-color, 0.3);
 
 body {
   // min-width: 1050px;
-  background: url('http://abs.twimg.com/images/themes/theme1/bg.png') no-repeat center top fixed, #BFDEEE;
+  background: url('http://abs.twimg.com/images/themes/theme1/bg.png') no-repeat center bottom fixed, #8CC1DB;
   font-family: 'Raleway', sans-serif;
   font-weight: 300;
   color: $font-color;
@@ -32,6 +32,7 @@ hr {
 .welcome {
   margin: $margin * 2;
 }
+
 
 
 // Nav
