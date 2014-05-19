@@ -4,19 +4,35 @@
 $margin: 10px;
 $border-radius: 3px;
 $padding: 10px;
-$nav-height: 100px;
+$nav-height: 30px;
+$font-color: #2C3E50;
+$second-color: #ECF0F1;
 
 body {
-  padding: $padding;
+  background: url('http://abs.twimg.com/images/themes/theme1/bg.png') no-repeat center top fixed, #BFDEEE;
   font-family: 'Raleway', sans-serif;
-  background: #2BBDF4;
+  color: $font-color;
+  padding: $padding;
 }
 
 nav {
-  height: $nav-height;
-  background: rgba(#073647, 0.8);
+  background: rgba(#E8160C, 0.6);
   margin-bottom: 20px;
+  text-align: right;
   border-radius: $border-radius;
+  height: $nav-height;
+  color: $second-color;
+  padding: $padding;
+}
+
+a {
+  color: $second-color;
+}
+
+hr {
+  color: $second-color;
+  background-color: $second-color;
+  height: 1px;
 }
 
 // User
@@ -32,32 +48,48 @@ nav {
 }
 
 
+
 // Tweets
 .words {
   clear: both;
 }
 
 .word {
-  background: #95A5A6;
+  padding: 1px;
+  background: $second-color;
+  border-radius: 1.5px;
 }
 
 .tweet {
   border: 1px solid white;
   width: 500px;
+  line-height: 200%;
   margin-bottom: $margin;
   padding: $padding;
   border-radius: $border-radius;
 }
 
 .new-tweet {
-  position: fixed;
-  top: ($padding * 2) + ($margin * 2) + $nav-height;
-  right: ($padding * 2);
   width: 500px;
-  height: 200px;
-  background: #95A5A6;
+  height: 150px;
+  background: $second-color;
+  position: fixed;
+  top: ($padding * 2) + ($margin * 2) + $nav-height + 20;
+  right: ($padding * 2);
   border-radius: $border-radius;
   padding: $padding;
+}
+
+.tweet-button {
+  background: $second-color;
+  position: fixed;
+  top: ($padding * 4) + ($margin * 3) + $nav-height + 20 + 150;
+  right: ($padding * 2);
+  border-radius: $border-radius;
+  padding: $padding;
+  &:focus {
+    outline: 0;
+  }
 }
 
 
