@@ -13,3 +13,5 @@ add angular
 post on user's behalf
 
 add tests
+
+add animations -- when tweets are loaded

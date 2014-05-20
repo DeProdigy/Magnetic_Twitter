@@ -95,6 +95,10 @@ nav {
   background: rgba(#7F8C8D, 0.2);
   border-radius: 1.5px;
   margin: 2px;
+  cursor: pointer;
+  &:hover {
+    color: $second-color;
+  }
 }
 
 .tweet {
@@ -109,7 +113,7 @@ nav {
 
 .new-tweet {
   width: 500px;
-  height: 150px;
+  height: 200px;
   border: $border;
   position: fixed;
   top: ($padding * 2) + ($margin * 2) + $nav-height + 20;
@@ -124,7 +128,7 @@ nav {
   font-weight: 500;
   font-size: 14px;
   position: fixed;
-  top: ($padding * 4) + ($margin * 3) + $nav-height + 20 + 150;
+  top: ($padding * 4) + ($margin * 3) + $nav-height + 20 + 200;
   right: ($padding * 2);
   border-radius: $border-radius;
   padding: $padding $padding * 4;
