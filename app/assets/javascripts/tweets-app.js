@@ -17,6 +17,7 @@ app.controller("tweetController", ['$scope', '$http', 'TweetCommunicator', funct
   });
 
   $scope.addToBucket = function(word) {
+
     var tweetLength = TweetCommunicator.shareTweets.join("").length;
     // check if a valid tweet
     if ( (tweetLength + word.length) > 140 ) {
@@ -27,15 +28,31 @@ app.controller("tweetController", ['$scope', '$http', 'TweetCommunicator', funct
       TweetCommunicator.shareTweets.push(word);
     }
   };
+
 }]);
 
+app.controller("bucketController", ['$scope', '$http', 'TweetCommunicator',function($scope, $http, TweetCommunicator){
+
+  $scope.removeFromBucket = function(word) {
+    // remove from bucket and add check if valid
+    var bucket = TweetCommunicator.shareTweets;
+    bucket.splice(bucket.indexOf(word), 1);
+
+    if ( bucket.join("").length > 140 ) {
+      // display the warning if exceeded 140 characters
+      $scope.$emit("CountExceeded");
+    }
+  };
+
+}]);
+
+// Visual change
 app.directive("displayTweets", function() {
   return {
     restrict: 'A',
     scope: {
       tweetContent: '@',
-      addTweet: '&',
-      removeTweet: '&'
+      addTweet: '&'
     },
     link: function(scope, elm, attrs) {
       function addWord() {
@@ -46,18 +63,28 @@ app.directive("displayTweets", function() {
         });
         // prevent from clicking on the word again
         elm.unbind('click', addWord);
-        // add method of removing the word
-        // elm.bind('click', removeWord);
       }
-      // function removeWord() {
-      //   debugger;
-      //   var word = scope.tweetContent;
-      //   scope.$apply(function() {
-      //     scope.removeTweet({word: word});
-      //   });
-      //   elm.remove();
-      // }
       elm.bind('click', addWord);
+    }
+  };
+});
+
+app.directive("removableTweets", function() {
+  return {
+    restrict: 'A',
+    scope: {
+      tweetContent: '@',
+      removeTweet: '&'
+    },
+    link: function(scope, elm, attrs) {
+      function removeWord() {
+        // with a space after
+        var word = scope.tweetContent;
+        scope.$apply(function() {
+          scope.removeTweet({word: word});
+        });
+      }
+      elm.bind('click', removeWord);
     }
   };
 });

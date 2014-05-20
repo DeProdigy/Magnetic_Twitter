@@ -4,7 +4,6 @@
     <div ng-repeat="tweet in tweets" class="tweet">
       <img ng-src="{{tweet.profile_image_url}}" class="profile-image">
       <h1>{{tweet.name}}</h1>
-      <!-- <display-tweets tweet-content=""></display-tweets> -->
       <article class='words'>
         <span class='word' ng-repeat="word in tweet.content track by $index" display-tweets tweet-content="{{word}}" add-tweet="addToBucket(word)">{{ word }} </span>
       </article>
@@ -12,9 +11,9 @@
     </div>
   </div>
 
-  <div class="new-tweet tweet">
+  <div class="new-tweet tweet" ng-controller="bucketController">
     <h1>TweetBucket</h1>
-    <span ng-repeat="word in chosenWords track by $index" class="word">{{word}}</span>
+    <span ng-repeat="word in chosenWords track by $index" class="word" removable-tweets tweet-content="{{word}}" remove-tweet="removeFromBucket(word)">{{word}}</span>
     <div ng-show="countExceeded" class="warning">You have exceeded 140 characters</div>
   </div>
 
