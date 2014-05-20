@@ -1,6 +1,7 @@
 @import "fonts";
 @import "mixins";
 
+$width: 500px;
 $margin: 10px;
 $border-radius: 3px;
 $border: 1px solid white;
@@ -103,7 +104,7 @@ nav {
 
 .tweet {
   border: $border;
-  width: 500px;
+  width: $width;
   line-height: 200%;
   background: $transparant-background;
   margin-bottom: $margin;
@@ -112,7 +113,7 @@ nav {
 }
 
 .new-tweet {
-  width: 500px;
+  width: $width;
   height: 200px;
   border: $border;
   position: fixed;
@@ -142,6 +143,20 @@ nav {
   }
 }
 
+.warning {
+  height: 30px;
+  width: $width;
+  background: #C4585C;
+  color: $second-color;
+  margin-right: $margin;
+  position: fixed;
+  top: ($padding * 4) + ($margin * 3) + $nav-height + 20 + 150;
+  right: ($padding * 2);
+  // cursor: pointer;
+  // &:hover {
+  //   background: lighten(#C4585C, 10%);
+  // }
+}
 
 
 

@@ -15,6 +15,7 @@
   <div class="new-tweet tweet">
     <h1>TweetBucket</h1>
     <span ng-repeat="word in chosenWords track by $index" class="word">{{word}}</span>
+    <div ng-show="countExceeded" class="warning">You have exceeded 140 characters</div>
   </div>
 
   <button class='tweet-button'>Tweet this!</button>

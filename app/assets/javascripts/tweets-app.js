@@ -2,6 +2,10 @@ var app = angular.module("myApp", []);
 
 app.controller("appController", function($scope, TweetCommunicator){
   $scope.chosenWords = TweetCommunicator.shareTweets;
+  // emit a CountExceeded event
+  $scope.$on("CountExceeded", function() {
+    $scope.countExceeded = true;
+  });
 });
 
 app.controller("tweetController", ['$scope', '$http', 'TweetCommunicator', function($scope, $http, TweetCommunicator) {
@@ -13,7 +17,15 @@ app.controller("tweetController", ['$scope', '$http', 'TweetCommunicator', funct
   });
 
   $scope.addToBucket = function(word) {
-    TweetCommunicator.shareTweets.push(word);
+    var tweetLength = TweetCommunicator.shareTweets.join("").length;
+    // check if a valid tweet
+    if ( (tweetLength + word.length) > 140 ) {
+      // display the warning if exceeded 140 characters
+      $scope.$emit("CountExceeded");
+    } else {
+      // if yes, add
+      TweetCommunicator.shareTweets.push(word);
+    }
   };
 }]);
 
@@ -35,7 +47,7 @@ app.directive("displayTweets", function() {
         // prevent from clicking on the word again
         elm.unbind('click', addWord);
         // add method of removing the word
-        elm.bind('click', removeWord);
+        // elm.bind('click', removeWord);
       }
       // function removeWord() {
       //   debugger;
