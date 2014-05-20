@@ -4,7 +4,9 @@ TODO
 
 ~~make images circle~~
 
-add a function that clears up the @tweets response
+~~move the API logic out of the index~~
+
+~~add a function that clears up the @tweets response~~
 
 add angular
 

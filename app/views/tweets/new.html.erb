@@ -1,22 +1,23 @@
-<section class='new-tweet'>
-  <p class='intro'>Your tweet starts here...</p>
-  <p class='intro'>Click on the words on the left to add them to this box</p>
-  <p class='intro'>Click the button below to tweet out your compiled tweet!</p>
+<section ng-controller="bucketController">
+
+  <div ng-controller="tweetController">
+    <div ng-repeat="tweet in tweets" class="tweet-container tweet">
+      <img ng-src="{{tweet.profile_image_url}}" class="profile-image">
+      <h1>{{tweet.name}}</h1>
+      <!-- <display-tweets tweet-content=""></display-tweets> -->
+      <article class='words'>
+        <span class='word' ng-repeat="word in tweet.content track by $index" display-tweets tweet-content="{{word}}" add-tweet="addToBucket(word)">{{ word }} </span>
+      </article>
+      <hr>
+    </div>
+  </div>
+
+  <div class="bucket new-tweet">
+    <h1>TweetBucket</h1>
+    <span ng-repeat="word in chosenWords track by $index">{{word}}</span>
+  </div>
+
+  <button class='tweet-button'>Tweet this!</button>
 </section>
 
-<button class='tweet-button'>Tweet this!</button>
-
-<% @tweets.each do |tweet| %>
-  <section class='tweet'>
-    <%= image_tag tweet[:profile_image_url], :class => 'profile-image' %>
-    <h3 class='name'><%= tweet[:name] %> - @<%= tweet[:username] %></h3>
-    <article class='words'>
-      <% words = tweet[:text] %>
-      <% words.each do |word| %>
-      <span class='word'><%= word %></span>
-      <% end %>
-    </article>
-    <hr>
-  </section>
-<% end %>
 
