@@ -8,7 +8,7 @@ app.controller("appController", function($scope, TweetCommunicator){
   });
 });
 
-app.controller("tweetController", ['$scope', '$http', 'TweetCommunicator', function($scope, $http, TweetCommunicator) {
+app.controller("tweetController", function($scope, $http, TweetCommunicator) {
   // get tweets through creating a service that makes ajax call to rails server
   $scope.tweets = [];
 
@@ -29,9 +29,9 @@ app.controller("tweetController", ['$scope', '$http', 'TweetCommunicator', funct
     }
   };
 
-}]);
+});
 
-app.controller("bucketController", ['$scope', '$http', 'TweetCommunicator',function($scope, $http, TweetCommunicator){
+app.controller("bucketController", function($scope, $http, TweetCommunicator){
 
   $scope.removeFromBucket = function(word) {
     // remove from bucket and add check if valid
@@ -44,7 +44,7 @@ app.controller("bucketController", ['$scope', '$http', 'TweetCommunicator',funct
     }
   };
 
-}]);
+});
 
 // Visual change
 app.directive("displayTweets", function() {
