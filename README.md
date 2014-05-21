@@ -12,6 +12,8 @@ TODO
 
 ~~fix injection problem~~
 
+~~remove the warning when less than 140 characters~~
+
 validate the tweet
 
 post on user's behalf

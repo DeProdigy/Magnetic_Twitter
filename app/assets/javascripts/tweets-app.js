@@ -6,6 +6,10 @@ app.controller("appController", function($scope, TweetCommunicator){
   $scope.$on("CountExceeded", function() {
     $scope.countExceeded = true;
   });
+
+  $scope.$on("ValidTweet", function() {
+    $scope.countExceeded = false;
+  });
 });
 
 app.controller("tweetController", function($scope, $http, TweetCommunicator) {
@@ -41,6 +45,8 @@ app.controller("bucketController", function($scope, $http, TweetCommunicator){
     if ( bucket.join("").length > 140 ) {
       // display the warning if exceeded 140 characters
       $scope.$emit("CountExceeded");
+    } else {
+      $scope.$emit("ValidTweet");
     }
   };
 
@@ -94,10 +100,6 @@ app.factory("TweetCommunicator", function() {
     shareTweets: []
   };
 });
-
-// tweetController.$inject = ['$scope', '$http', 'TweetCommunicator'];
-// bucketController.$inject = ['$scope', '$http', 'TweetCommunicator'];
-
 
 
 
