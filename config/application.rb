@@ -66,6 +66,7 @@ module MagneticTwitter
 
     config.assets.initialize_on_precompile = false
 
+    #turn off the minification of javascript because of angular injection
     # config.assets.compress = true
     # config.assets.js_compressor = NoCompression.new
   end

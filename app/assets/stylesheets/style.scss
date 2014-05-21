@@ -19,10 +19,7 @@ body {
   color: $font-color;
   padding: $padding;
   // don't let the user select
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
+  @include no-select();
 }
 
 a {

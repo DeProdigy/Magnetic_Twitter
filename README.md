@@ -10,7 +10,7 @@ TODO
 
 ~~add angular~~
 
-fix injection problem
+~~fix injection problem~~
 
 validate the tweet
 
