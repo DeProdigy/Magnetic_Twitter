@@ -20,7 +20,7 @@ TODO
 
 ~~show success message~~
 
-add animations -- when tweets are loaded
+~~add animations -- when tweets are loaded~~
 
 move everything into templates and partials
 

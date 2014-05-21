@@ -2,7 +2,8 @@ var app = angular.module("myApp", []);
 
 app.controller("appController", function($scope, TweetCommunicator){
   $scope.chosenWords = TweetCommunicator.shareTweets;
-  // emit a CountExceeded event
+
+  // emit events
   $scope.$on("CountExceeded", function() {
     $scope.countExceeded = true;
   });

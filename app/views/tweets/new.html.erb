@@ -1,21 +1,28 @@
 <section ng-controller="appController">
+
   <div ng-show="tweetPosted" class="posted">Posted a Tweet!</div>
+
   <div ng-controller="tweetController">
+
     <div ng-repeat="tweet in tweets" class="tweet">
       <img ng-src="{{tweet.profile_image_url}}" class="profile-image">
-      <h1>{{tweet.name}}</h1>
+      <h3>{{tweet.name}}</h3>
       <article class='words'>
         <span class='word' ng-repeat="word in tweet.content track by $index" display-tweets tweet-content="{{word}}" add-tweet="addToBucket(word)">{{ word }} </span>
       </article>
       <hr>
     </div>
+
   </div>
 
   <div class="new-tweet tweet" ng-controller="bucketController">
-    <h1>TweetBucket</h1>
+
+    <p><b>Click the words on the left to compile your own tweet here:</b></p>
     <span ng-repeat="word in chosenWords track by $index" class="word new-word" removable-tweets tweet-content="{{word}}" remove-tweet="removeFromBucket(word)">{{word}}</span>
     <div ng-show="countExceeded" class="warning">You have exceeded 140 characters</div>
+
     <button class='tweet-button' ng-disabled="countExceeded" ng-click="postTweet()">Tweet this!</button>
+
   </div>
 
 
