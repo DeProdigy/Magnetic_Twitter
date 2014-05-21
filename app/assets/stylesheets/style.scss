@@ -18,6 +18,11 @@ body {
   font-weight: 300;
   color: $font-color;
   padding: $padding;
+  // don't let the user select
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 a {
@@ -99,6 +104,13 @@ nav {
   cursor: pointer;
   &:hover {
     color: $second-color;
+  }
+}
+
+.new-word {
+  &:hover {
+    color: red;
+    opacity: 0.3;
   }
 }
 

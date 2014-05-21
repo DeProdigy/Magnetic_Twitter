@@ -8,10 +8,17 @@ TODO
 
 ~~add a function that clears up the @tweets response~~
 
-add angular
+~~add angular~~
+
+fix injection problem
+
+validate the tweet
 
 post on user's behalf
 
-add tests
+move everything into templates and partials
 
 add animations -- when tweets are loaded
+
+add tests
+
