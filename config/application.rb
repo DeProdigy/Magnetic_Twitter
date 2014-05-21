@@ -66,7 +66,7 @@ module MagneticTwitter
 
     config.assets.initialize_on_precompile = false
 
-    config.assets.compress = true
-    config.assets.js_compressor = NoCompression.new
+    # config.assets.compress = true
+    # config.assets.js_compressor = NoCompression.new
   end
 end
