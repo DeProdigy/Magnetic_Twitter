@@ -13,6 +13,7 @@ MagneticTwitter::Application.routes.draw do
   get 'tweets' => 'tweets#index'
   get 'tweets/new' => 'tweets#new'
   get 'tweets/api' => 'tweets#api'
+  post 'tweets/api' => 'tweets#post_tweet'
 
 
 

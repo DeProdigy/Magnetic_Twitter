@@ -1,4 +1,5 @@
 class TweetsController < ApplicationController
+  protect_from_forgery :except => :post_tweet
   respond_to :json
 
   def index
@@ -14,6 +15,10 @@ class TweetsController < ApplicationController
     clean_tweets = Tweet.clean_up(dirty_tweets)
 
     respond_with clean_tweets
+  end
+
+  def post_tweet
+    Tweet.post(params[:tweet], current_user)
   end
 end
 

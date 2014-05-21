@@ -50,6 +50,17 @@ app.controller("bucketController", function($scope, $http, TweetCommunicator){
     }
   };
 
+  $scope.postTweet = function() {
+    // post the tweet
+    // take out the last space in the string
+    var validTweet = TweetCommunicator.shareTweets.join('').trim();
+
+    $http.post('/tweets/api', {tweet: validTweet}).success(function(response){
+      console.log('posted a tweet!' + response);
+    });
+
+  };
+
 });
 
 // Visual change

@@ -14,9 +14,9 @@ TODO
 
 ~~remove the warning when less than 140 characters~~
 
-validate the tweet
+~~validate the tweet~~
 
-post on user's behalf
+~~post on user's behalf~~
 
 move everything into templates and partials
 
