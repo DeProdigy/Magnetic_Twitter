@@ -10,6 +10,15 @@ app.controller("appController", function($scope, TweetCommunicator){
   $scope.$on("ValidTweet", function() {
     $scope.countExceeded = false;
   });
+
+  $scope.$on("PostedTweet", function() {
+    $scope.tweetPosted = true;
+  });
+
+  $scope.$on("TurnOffPostedTweet", function() {
+    $scope.tweetPosted = false;
+  });
+
 });
 
 app.controller("tweetController", function($scope, $http, TweetCommunicator) {
@@ -35,7 +44,7 @@ app.controller("tweetController", function($scope, $http, TweetCommunicator) {
 
 });
 
-app.controller("bucketController", function($scope, $http, TweetCommunicator){
+app.controller("bucketController", function($timeout, $scope, $http, TweetCommunicator){
 
   $scope.removeFromBucket = function(word) {
     // remove from bucket and add check if valid
@@ -57,6 +66,10 @@ app.controller("bucketController", function($scope, $http, TweetCommunicator){
 
     $http.post('/tweets/api', {tweet: validTweet}).success(function(response){
       console.log('posted a tweet!' + response);
+      // flash sucess message for 3 seconds and reset the bucket
+      $scope.$emit("PostedTweet");
+      $timeout(function(){ $scope.$emit("TurnOffPostedTweet");}, 3000);
+
     });
 
   };

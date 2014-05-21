@@ -18,9 +18,11 @@ TODO
 
 ~~post on user's behalf~~
 
-move everything into templates and partials
+~~show success message~~
 
 add animations -- when tweets are loaded
+
+move everything into templates and partials
 
 add tests
 

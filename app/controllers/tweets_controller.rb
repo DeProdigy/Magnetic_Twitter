@@ -18,7 +18,9 @@ class TweetsController < ApplicationController
   end
 
   def post_tweet
-    Tweet.post(params[:tweet], current_user)
+    tweet = Tweet.post(params[:tweet], current_user)
+
+    render json: tweet, status: 200
   end
 end
 

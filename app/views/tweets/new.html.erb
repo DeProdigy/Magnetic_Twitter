@@ -1,5 +1,5 @@
 <section ng-controller="appController">
-
+  <div ng-show="tweetPosted" class="posted">Posted a Tweet!</div>
   <div ng-controller="tweetController">
     <div ng-repeat="tweet in tweets" class="tweet">
       <img ng-src="{{tweet.profile_image_url}}" class="profile-image">

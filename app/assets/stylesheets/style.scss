@@ -1,3 +1,4 @@
+@import "saffron/saffron";
 @import "fonts";
 @import "mixins";
 
@@ -150,6 +151,9 @@ nav {
   &:active {
     background: rgba($second-color, 0.8);
   }
+  &:hover {
+    @include pulsate();
+  }
 }
 
 .warning {
@@ -162,13 +166,20 @@ nav {
   position: fixed;
   top: ($padding * 4) + ($margin * 3) + $nav-height + 20 + 150;
   right: ($padding * 2);
-  // cursor: pointer;
-  // &:hover {
-  //   background: lighten(#C4585C, 10%);
-  // }
 }
 
-
+.posted {
+  z-index: 1;
+  text-align: center;
+  height: 20px;
+  width: $width + ($padding * 2);
+  background: lighten(#009800, 5%);
+  color: $second-color;
+  margin-right: $margin;
+  position: absolute;
+  top: ($padding * 4) + $nav-height ;
+  right: ($padding);
+}
 
 
 
