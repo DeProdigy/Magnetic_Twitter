@@ -50,6 +50,7 @@ app.controller("bucketController", function($timeout, $scope, $http, TweetCommun
   $scope.removeFromBucket = function(word) {
     // remove from bucket and add check if valid
     var bucket = TweetCommunicator.shareTweets;
+
     bucket.splice(bucket.indexOf(word), 1);
 
     if ( bucket.join("").length > 140 ) {
@@ -69,7 +70,7 @@ app.controller("bucketController", function($timeout, $scope, $http, TweetCommun
       console.log('posted a tweet!' + response);
       // flash sucess message for 3 seconds and reset the bucket
       $scope.$emit("PostedTweet");
-      $timeout(function(){ $scope.$emit("TurnOffPostedTweet");}, 3000);
+      $timeout(function(){ $scope.$emit("TurnOffPostedTweet"); }, 3000);
 
     });
 

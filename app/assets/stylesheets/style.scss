@@ -112,6 +112,9 @@ nav {
     color: red;
     opacity: 0.3;
   }
+  &:active {
+    @include dropOut();
+  }
 }
 
 .tweet {
