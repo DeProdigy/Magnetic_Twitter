@@ -1,5 +1,7 @@
 require File.expand_path('../boot', __FILE__)
 
+require File.expand_path('../../lib/modules/no_compression', __FILE__)
+
 require 'rails/all'
 if Rails.env.test?
       require 'simplecov'
@@ -63,5 +65,8 @@ module MagneticTwitter
     config.assets.version = '1.0'
 
     config.assets.initialize_on_precompile = false
+
+    config.assets.compress = true
+    config.assets.js_compressor = NoCompression.new
   end
 end
