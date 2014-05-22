@@ -22,6 +22,8 @@ TODO
 
 ~~add animations -- when tweets are loaded~~
 
+add "made by Alex Hint link"
+
 move everything into templates and partials
 
 add tests

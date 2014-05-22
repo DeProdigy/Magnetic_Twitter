@@ -1,6 +1,7 @@
 var app = angular.module("myApp", []);
 
 app.controller("appController", function($scope, TweetCommunicator){
+  // setup data binding between the two controllers via a service
   $scope.chosenWords = TweetCommunicator.shareTweets;
 
   // emit events
@@ -38,7 +39,8 @@ app.controller("tweetController", function($scope, $http, TweetCommunicator) {
       // display the warning if exceeded 140 characters
       $scope.$emit("CountExceeded");
     } else {
-      // if yes, add
+      // if yes, add and remove warning
+      $scope.$emit("ValidTweet");
       TweetCommunicator.shareTweets.push(word);
     }
   };
@@ -80,6 +82,10 @@ app.controller("bucketController", function($timeout, $scope, $http, TweetCommun
 
 // Visual change
 app.directive("displayTweets", function() {
+  //create an isolate scope - based upon attributes on the directive element
+  // @ reads from the controller, must use {{ }} around the expression, read only, not write
+  // & allows you to pass data out of the directive by calling a function on the controller scope
+  // in this case the function parameter must be passed as an object i.e. {word: word}
   return {
     restrict: 'A',
     scope: {
@@ -88,12 +94,15 @@ app.directive("displayTweets", function() {
     },
     link: function(scope, elm, attrs) {
       function addWord() {
-        // with a space after
+        // add a space after the word
         var word = scope.tweetContent + ' ';
+        // normally changes on the scope would cause angular to automatically run a digest cycle
+        // updating dom elements bound to the scope, but because we update the scope inside jQuery
+        // bind we must call $apply to force the digest cycle
         scope.$apply(function() {
           scope.addTweet({word: word});
         });
-        // prevent from clicking on the word again
+        // unbind the click event to prevent from the user from clicking on the word again
         elm.unbind('click', addWord);
       }
       elm.bind('click', addWord);
@@ -102,7 +111,7 @@ app.directive("displayTweets", function() {
 });
 
 app.directive("removableTweets", function() {
-  return {
+ return {
     restrict: 'A',
     scope: {
       tweetContent: '@',
@@ -110,7 +119,6 @@ app.directive("removableTweets", function() {
     },
     link: function(scope, elm, attrs) {
       function removeWord() {
-        // with a space after
         var word = scope.tweetContent;
         scope.$apply(function() {
           scope.removeTweet({word: word});
@@ -122,6 +130,8 @@ app.directive("removableTweets", function() {
 });
 
 app.factory("TweetCommunicator", function() {
+  // allows communication between the two controllers
+  // better separation of concerns for testing
   return {
     shareTweets: []
   };

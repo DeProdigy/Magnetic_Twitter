@@ -19,7 +19,7 @@
 
     <p><b>Click the words on the left to compile your own tweet here:</b></p>
     <span ng-repeat="word in chosenWords track by $index" class="word new-word" removable-tweets tweet-content="{{word}}" remove-tweet="removeFromBucket(word)">{{word}}</span>
-    <div ng-show="countExceeded" class="warning">You have exceeded 140 characters</div>
+    <div ng-show="countExceeded" class="warning">That exceeds 140 characters</div>
 
     <button class='tweet-button' ng-disabled="countExceeded" ng-click="postTweet()">Tweet this!</button>
 
