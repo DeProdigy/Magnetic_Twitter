@@ -22,9 +22,14 @@ TODO
 
 ~~add animations -- when tweets are loaded~~
 
-add "made by Alex Hint link"
+Apply directive to specific controllers
 
-move everything into templates and partials
+Add docs next steps, challenges occurred, tech used, etc
 
-add tests
+Add Rspec
+
+Add Travis
+
+Add Coverall
+
 

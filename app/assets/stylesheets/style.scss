@@ -105,6 +105,9 @@ nav {
   &:hover {
     color: $second-color;
   }
+  &:active {
+    @include ping();
+  }
 }
 
 .new-word {
