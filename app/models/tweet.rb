@@ -1,13 +1,12 @@
 class Tweet < ActiveRecord::Base
 
-  def self.search(current_user)
+  def self.get_client(current_user)
     client = Twitter::REST::Client.new do |config|
       config.consumer_key        = ENV['MAGNETIC_TWITTER_KEY']
       config.consumer_secret     = ENV['MAGNETIC_TWITTER_SECRET']
       config.access_token        = current_user.token
       config.access_token_secret = current_user.secret
     end
-    client.home_timeline
   end
 
   def self.clean_up(dirty_tweets)
@@ -23,13 +22,13 @@ class Tweet < ActiveRecord::Base
     clean_tweets
   end
 
+  def self.search(current_user)
+    client = get_client(current_user)
+    client.home_timeline
+  end
+
   def self.post(tweet, current_user)
-    client = Twitter::REST::Client.new do |config|
-      config.consumer_key        = ENV['MAGNETIC_TWITTER_KEY']
-      config.consumer_secret     = ENV['MAGNETIC_TWITTER_SECRET']
-      config.access_token        = current_user.token
-      config.access_token_secret = current_user.secret
-    end
+    client = get_client(current_user)
     client.update(tweet)
   end
 end
