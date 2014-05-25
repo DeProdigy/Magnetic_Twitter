@@ -4,37 +4,16 @@
 
 > A fun way to compile your own tweet with other people's words.
 
+Magnetic Twitter is built on Rails, Angular and Twitter API.
 
-TODO
+###Requirements
+Rails 3.2.14+
 
-~~add user's image~~
 
-~~make images circle~~
+###Next Steps
+* Set up more tests
+* Add user input to the tweet
+* Add more backend validations
 
-~~move the API logic out of the index~~
-
-~~add a function that clears up the @tweets response~~
-
-~~add angular~~
-
-~~fix injection problem~~
-
-~~remove the warning when less than 140 characters~~
-
-~~validate the tweet~~
-
-~~post on user's behalf~~
-
-~~show success message~~
-
-~~add animations -- when tweets are loaded~~
-
-Add docs next steps, challenges occurred, tech used, etc
-
-Add Rspec
-
-Add Travis
-
-Add Coverall
 
 
