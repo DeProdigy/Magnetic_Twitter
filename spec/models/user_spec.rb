@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe User do
-  pending "add some examples to (or delete) #{__FILE__}"
+  # has main methods
+  it { User.should respond_to :from_omniauth }
+  it { User.should respond_to :create_from_omniauth }
 end

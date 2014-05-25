@@ -22,8 +22,6 @@ TODO
 
 ~~add animations -- when tweets are loaded~~
 
-Apply directive to specific controllers
-
 Add docs next steps, challenges occurred, tech used, etc
 
 Add Rspec
