@@ -7,6 +7,8 @@ require 'capybara/rails'
 require 'capybara/rspec'
 require 'launchy'
 require 'selenium-webdriver'
+require 'coveralls'
+Coveralls.wear!
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.

@@ -14,6 +14,8 @@ gem 'twitter'
 gem 'angularjs-rails'
 gem 'ngmin-rails'
 
+gem 'coveralls', require: false
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
