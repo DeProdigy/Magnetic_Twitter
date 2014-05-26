@@ -28,4 +28,6 @@ TODO
 
 ~~Add Coverall~~
 
-Add docs next steps, challenges occurred, tech used, etc
+~~Add docs next steps, challenges occurred, tech used, etc~~
+
+~~move everything into modules~~

@@ -15,6 +15,9 @@
 //= require angular
 //= require angular-animate
 //= require angular-resource
-//= require tweets-app
+//= require factories
+//= require directives
+//= require controllers
+//= require app
 
 
